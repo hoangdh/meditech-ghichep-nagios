@@ -4,7 +4,7 @@ if [ "$1" == "" ]
     then
     echo "Usage: ./check_http HOSTNAME"
 else
-    status=`curl -I $1 | head -n 1`
+    status=`curl -sLI $1 | head -n 1`
     code=`echo $status |  awk -F" " '{print $2}'`
     case $code in
         [100-199]*)
